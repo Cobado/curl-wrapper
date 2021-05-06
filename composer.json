@@ -1,0 +1,16 @@
+{
+    "name": "nebado/curl-wrapper",
+    "description": "A simple curl wrapper for php",
+    "authors": [
+        {
+            "name": "Nebado",
+            "email": "ruslan.nbd@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    },
+    "require": {}
+}
