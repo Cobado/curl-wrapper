@@ -140,5 +140,45 @@ class Curl {
         
         return $ret;
     }
+
+    /**
+     * Set curl option
+     *
+     * @param string $name
+     * @param string $value
+     */
+    public function addCurlOption($name, $value) {
+        if (stripos($name, 'CURLOPT_') === false) {
+            $name = strtoupper('CURLOPT_' . $name);
+        }
+        $this->curlOptions[$name] = $value;
+    }
+
+    /**
+     * Set curl options
+     *
+     * @param array $curlOptions 
+     */
+    public function addCurlOptions($curlOptions = array()) {
+        if (is_array($curlOptions)) {
+            foreach($curlOptions as $name => $val){
+                $this->addCurlOption($name, $val);
+            }
+        }
+    }
+
+    /**
+     * Reset http method
+     *
+     */
+    public function resetCurlOptions() {
+        unset($this->curlOptions['CURLOPT_HTTPGET']);
+        unset($this->curlOptions['CURLOPT_POST']);
+        unset($this->curlOptions['CURLOPT_POSTFIELDS']);
+        unset($this->curlOptions['CURLOPT_PUT']);
+        unset($this->curlOptions['CURLOPT_INFILE']);
+        unset($this->curlOptions['CURLOPT_INFILESIZE']);
+        unset($this->curlOptions['CURLOPT_CUSTOMREQUEST']);
+    }
 }
 
