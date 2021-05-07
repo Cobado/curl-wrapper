@@ -14,3 +14,11 @@ A simple fast non-blocking curl wrapper for php.
 $ composer install
 
 ```
+
+## Testing
+
+```console
+
+$ ./vendor/bin/phpunit tests
+
+```
